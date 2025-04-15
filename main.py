@@ -404,7 +404,7 @@ def check_latest_version():
             'User-Agent': 'BYPASS CURSUR-Updater'
         }
         response = requests.get(
-            "https://api.github.com/repos/MUNIR KABIR/BYPASS CURSUR/releases/latest",
+            "https://api.github.com/repos/black12-ag/cursor-bypass-tool/releases/latest",
             headers=headers,
             timeout=10
         )
@@ -453,7 +453,7 @@ def check_latest_version():
             
             # get and show changelog
             try:
-                changelog_url = "https://raw.githubusercontent.com/MUNIR KABIR/BYPASS CURSUR/main/CHANGELOG.md"
+                changelog_url = "https://raw.githubusercontent.com/black12-ag/cursor-bypass-tool/main/CHANGELOG.md"
                 changelog_response = requests.get(changelog_url, timeout=10)
                 
                 if changelog_response.status_code == 200:
@@ -502,11 +502,11 @@ def check_latest_version():
             try:
                 # Execute update command based on platform
                 if platform.system() == 'Windows':
-                    update_command = 'irm https://raw.githubusercontent.com/MUNIR KABIR/BYPASS CURSUR/main/scripts/install.ps1 | iex'
+                    update_command = 'irm https://raw.githubusercontent.com/black12-ag/cursor-bypass-tool/main/scripts/install.ps1 | iex'
                     subprocess.run(['powershell', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', update_command], check=True)
                 else:
                     # For Linux/Mac, download and execute the install script
-                    install_script_url = 'https://raw.githubusercontent.com/MUNIR KABIR/BYPASS CURSUR/main/scripts/install.sh'
+                    install_script_url = 'https://raw.githubusercontent.com/black12-ag/cursor-bypass-tool/main/scripts/install.sh'
                     
                     # First verify the script exists
                     script_response = requests.get(install_script_url, timeout=5)

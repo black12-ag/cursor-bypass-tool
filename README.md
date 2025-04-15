@@ -85,7 +85,7 @@ Always clean your browser's cache and cookies. If possible, use a VPN to create 
 ### **Linux/macOS**
 
 ```bash
-curl -fsSL https://example.com/munir-temp-link/main/scripts/install.sh -o install.sh && chmod +x install.sh && ./install.sh
+curl -fsSL https://raw.githubusercontent.com/black12-ag/cursor-bypass-tool/main/scripts/install.sh -o install.sh && chmod +x install.sh && ./install.sh
 ```
 
 ### **Archlinux**
@@ -99,7 +99,7 @@ yay -S BYPASS-CURSUR-git
 ### **Windows**
 
 ```powershell
-irm https://example.com/munir-temp-link/main/scripts/install.ps1 | iex
+irm https://raw.githubusercontent.com/black12-ag/cursor-bypass-tool/main/scripts/install.ps1 | iex
 ```
 
 </details>
@@ -110,13 +110,13 @@ irm https://example.com/munir-temp-link/main/scripts/install.ps1 | iex
 ### **Linux/macOS**
 
 ```bash
-curl -fsSL https://example.com/munir-temp-link/main/scripts/reset.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/black12-ag/cursor-bypass-tool/main/scripts/reset.sh | sudo bash
 ```
 
 ### **Windows**
 
 ```powershell
-irm https://example.com/munir-temp-link/main/scripts/reset.ps1 | iex
+irm https://raw.githubusercontent.com/black12-ag/cursor-bypass-tool/main/scripts/reset.ps1 | iex
 ```
 
 </details>
