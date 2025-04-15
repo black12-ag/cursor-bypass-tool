@@ -1,30 +1,23 @@
-# ➤ BYPASS CURSUR
+# ➤ Cursor Bypass Tool
 
 <div align="center">
 <p align="center">
-  <img src="./images/logo.png" alt="BYPASS CURSUR Logo" width="200" style="border-radius: 6px;"/>
+  <img src="./images/logo.png" alt="Cursor Bypass Tool Logo" width="200" style="border-radius: 6px;"/>
 </p>
 
 <p align="center">
 
-[![Release](https://img.shields.io/endpoint?url=https://www.pinnumber.rr.nu/badges/release/MUNIR%20KABIR/BYPASS%20CURSUR)](https://example.com/munir-temp-link/releases/latest)
-[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC_BY--NC--ND_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
-[![Stars](https://img.shields.io/endpoint?url=https://www.pinnumber.rr.nu/badges/stars/MUNIR%20KABIR/BYPASS%20CURSUR)](https://example.com/munir-temp-link/stargazers)
-[![Downloads](https://img.shields.io/endpoint?url=https://www.pinnumber.rr.nu/badges/downloads/MUNIR%20KABIR/BYPASS%20CURSUR/total)](https://example.com/munir-temp-link/releases/latest)
-<a href="https://buymeacoffee.com/MUNIRKABIR" target="_blank"><img alt="Buy Me a Coffee" src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Support%20Me-FFDA33"></a>
+[![Release](https://img.shields.io/github/v/release/black12-ag/cursor-bypass-tool)](https://github.com/black12-ag/cursor-bypass-tool/releases/latest)
+[![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey.svg)](https://opensource.org/licenses/MIT)
+[![Stars](https://img.shields.io/github/stars/black12-ag/cursor-bypass-tool)](https://github.com/black12-ag/cursor-bypass-tool/stargazers)
+[![Downloads](https://img.shields.io/github/downloads/black12-ag/cursor-bypass-tool/total)](https://github.com/black12-ag/cursor-bypass-tool/releases/latest)
+<a href="https://buymeacoffee.com/black12" target="_blank"><img alt="Buy Me a Coffee" src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Support%20Me-FFDA33"></a>
 
 </p>
 
-<a href="https://trendshift.io/repositories/13425" target="_blank"><img src="https://trendshift.io/api/badge/repositories/13425" alt="MUNIR%20KABIR%2FBYPASS%20CURSUR | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
-<br>
-<a href="https://www.buymeacoffee.com/MUNIRKABIR" target="_blank">
-      <img src="https://img.buymeacoffee.com/button-api/?text=buy me a coffee&emoji=☕&slug=MUNIRKABIR&button_colour=ffda33&font_colour=000000&font_family=Bree&outline_colour=000000&coffee_colour=FFDD00&latest=2" width="160" height='55' alt="Buy Me a Coffee"/>
-</a>
-
-
 <h4>Support Latest 0.48.x Version | 支持最新 0.48.x 版本</h4>
 
-This tool registers accounts with custom emails, support Google and GitHub account registrations, temporary GitHub account registration, kills all Cursor's running processes, resets and wipes Cursor data and hardware info.
+A powerful tool that enhances your development workflow by bypassing Cursor limitations. This tool registers accounts with custom emails, supports Google and GitHub account registrations, resets and wipes Cursor data and hardware info.
 
 Supports Windows, macOS and Linux.
 
@@ -33,7 +26,7 @@ For optimal performance, run with privileges and always stay up to date.
 Always clean your browser's cache and cookies. If possible, use a VPN to create new accounts.
 
 
-這是一個自動化工具，自動註冊，支持 Windows macOS 和 Linux 系統，完成 Auth 驗證，重置 BYPASS CURSUR 的配置。
+這是一個自動化工具，自動註冊，支持 Windows macOS 和 Linux 系統，完成 Auth 驗證，重置 Cursor 的配置。
 
 <p align="center">
   <img src="./images/pro_2025-04-05_18-47-56.png" alt="new" width="800" style="border-radius: 6px;"/><br>
@@ -57,15 +50,15 @@ Always clean your browser's cache and cookies. If possible, use a VPN to create 
 
 * ⭐ GitHub OAuth Authentication with Lifetime Access<br>使用 GitHub OAuth 認證（終身訪問）<br>
 
-* Automatically register BYPASS CURSUR membership<br>自動註冊 BYPASS CURSUR 會員<br>
+* Automatically register Cursor membership<br>自動註冊 Cursor 會員<br>
 
 * Support Windows macOS and Linux systems<br>支持 Windows、macOS 和 Linux 系統<br>
 
 * Complete Auth verification<br>完成 Auth 驗證<br>
 
-* Reset BYPASS CURSUR's configuration<br>重置 BYPASS CURSUR 的配置<br>
+* Reset Cursor's configuration<br>重置 Cursor 的配置<br>
 
-* Delete BYPASS CURSUR Google Account<br>删除 BYPASS CURSUR Google 账号<br>
+* Delete Cursor Google Account<br>删除 Cursor Google 账号<br>
 
 * Multi-language support (English, 简体中文, 繁體中文, Vietnamese)<br>多語言支持（英文、简体中文、繁體中文、越南語）<br>
 
@@ -90,10 +83,10 @@ curl -fsSL https://raw.githubusercontent.com/black12-ag/cursor-bypass-tool/main/
 
 ### **Archlinux**
 
-Install via [AUR](https://aur.archlinux.org/packages/BYPASS-CURSUR-git)
+Install via [AUR](https://aur.archlinux.org/packages/cursor-bypass-tool-git)
 
 ```bash
-yay -S BYPASS-CURSUR-git
+yay -S cursor-bypass-tool-git
 ```
 
 ### **Windows**
@@ -126,7 +119,7 @@ If you want to stop the script, please press Ctrl+C<br>要停止腳本，請按 
 ## ❗ Note | 注意事項
 
 📝 Config | 文件配置
-`Win / Macos / Linux Path | 路徑 [Documents/.BYPASS CURSUR/config.ini]`
+`Win / Macos / Linux Path | 路徑 [Documents/.Cursor Bypass Tool/config.ini]`
 <details>
 <summary><b>⭐ Config | 文件配置</b></summary>
 
@@ -185,40 +178,13 @@ max_timeout = 160
 check_update = True
 # Show Account Info | 顯示賬號信息
 show_account_info = True
-
-[WindowsPaths]
-storage_path = C:\Users\MUNIR KABIR\AppData\Roaming\Cursor\User\globalStorage\storage.json
-sqlite_path = C:\Users\MUNIR KABIR\AppData\Roaming\Cursor\User\globalStorage\state.vscdb
-machine_id_path = C:\Users\MUNIR KABIR\AppData\Roaming\Cursor\machineId
-cursor_path = C:\Users\MUNIR KABIR\AppData\Local\Programs\Cursor\resources\app
-updater_path = C:\Users\MUNIR KABIR\AppData\Local\cursor-updater
-update_yml_path = C:\Users\MUNIR KABIR\AppData\Local\Programs\Cursor\resources\app-update.yml
-product_json_path = C:\Users\MUNIR KABIR\AppData\Local\Programs\Cursor\resources\app\product.json
-
-[Browser]
-default_browser = opera
-chrome_path = C:\Program Files\Google\Chrome\Application\chrome.exe
-edge_path = C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe
-firefox_path = C:\Program Files\Mozilla Firefox\firefox.exe
-brave_path = C:\Program Files\BraveSoftware/Brave-Browser/Application/brave.exe
-chrome_driver_path = D:\VisualCode\BYPASS-CURSUR\drivers\chromedriver.exe
-edge_driver_path = D:\VisualCode\BYPASS-CURSUR\drivers\msedgedriver.exe
-firefox_driver_path = D:\VisualCode\BYPASS-CURSUR\drivers\geckodriver.exe
-brave_driver_path = D:\VisualCode\BYPASS-CURSUR\drivers\chromedriver.exe
-opera_path = C:\Users\MUNIR KABIR\AppData\Local\Programs\Opera\opera.exe
-opera_driver_path = D:\VisualCode\BYPASS-CURSUR\drivers\chromedriver.exe
-
-[OAuth]
-show_selection_alert = False
-timeout = 120
-max_attempts = 3
 ```
 
 </details>
 
 * Use administrator privileges to run the script <br>請使用管理員身份運行腳本
 
-* Confirm that BYPASS CURSUR is closed before running the script <br>請確保在運行腳本前已經關閉 BYPASS CURSUR<br>
+* Confirm that Cursor is closed before running the script <br>請確保在運行腳本前已經關閉 Cursor<br>
 
 * This tool is only for learning and research purposes <br>此工具僅供學習和研究使用<br>
 
@@ -230,15 +196,10 @@ max_attempts = 3
 |:--------------------------------------------------:|:------------------------------------------------:|
 | If you encounter permission issues, please ensure: | This script is run with administrator privileges |
 | Error 'User is not authorized' | This means your account was banned for using temporary (disposal) mail. Ensure using a non-temporary mail service |
+
 ## 🤩 Contribution | 貢獻
 
 歡迎提交 Issue 和 Pull Request！
-
-
-<a href="https://example.com/munir-temp-link/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=MUNIR%20KABIR/BYPASS%20CURSUR&preview=true&max=&columns=" />
-</a>
-<br /><br />
 
 ## 📩 Disclaimer | 免責聲明
 
@@ -250,7 +211,7 @@ by the user.
 ## 💰 Buy Me a Coffee | 請我喝杯咖啡
 
 <p align="center">
-  <a href="https://www.buymeacoffee.com/MUNIRKABIR" target="_blank">
+  <a href="https://www.buymeacoffee.com/black12" target="_blank">
     <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >
   </a>
 </p>
@@ -259,11 +220,11 @@ by the user.
 
 <div align="center">
 
-[![Star History Chart](https://api.star-history.com/svg?repos=yeongpin/cursor-free-vip&type=Date)](https://star-history.com/#yeongpin/cursor-free-vip&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=black12-ag/cursor-bypass-tool&type=Date)](https://star-history.com/#black12-ag/cursor-bypass-tool&Date)
 
 </div>
 
 ## 📝 License | 授權
 
-本項目採用 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) 授權。
+本項目採用 [MIT License](https://opensource.org/licenses/MIT) 授權。
 Please refer to the [LICENSE](LICENSE.md) file for details.
