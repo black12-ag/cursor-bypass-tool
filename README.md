@@ -2,14 +2,13 @@
 
 <div align="center">
   <p align="center">
-    <img src="./images/logo.png" alt="Cursor Bypass Tool Logo" width="200" style="border-radius: 6px;"/>
+    <img src="./images/munir_tool.png" alt="Munir Bypass Tool Logo" width="200" style="border-radius: 6px;"/>
   </p>
   <p align="center">
     [![Release](https://img.shields.io/github/v/release/black12-ag/cursor-bypass-tool)](https://github.com/black12-ag/cursor-bypass-tool/releases/latest)
     [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey.svg)](https://opensource.org/licenses/MIT)
     [![Stars](https://img.shields.io/github/stars/black12-ag/cursor-bypass-tool)](https://github.com/black12-ag/cursor-bypass-tool/stargazers)
     [![Downloads](https://img.shields.io/github/downloads/black12-ag/cursor-bypass-tool/total)](https://github.com/black12-ag/cursor-bypass-tool/releases/latest)
-    <a href="https://buymeacoffee.com/black12" target="_blank"><img alt="Buy Me a Coffee" src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Support%20Me-FFDA33"></a>
   </p>
   <h4>Supports Latest Cursor Version</h4>
 </div>
@@ -161,6 +160,11 @@ If you find this tool helpful, consider supporting its development via:
 *   **Skrill:** [Send 10 USD via Skrill](https://skrill.me/rq/Munir%20Ayub/10/USD?key=1VqVrQ2Ly1LN5JmgKpAlzoMGBEg)
 *   **PayPal:** [Donate via PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=muay01111@gmail.com&item_name=Support+Cursor+Bypass+Tool&currency_code=USD)
 
+<p align="center">
+  <a href="#binance-payment"> <!-- TODO: Replace #binance-payment with your actual Binance payment link if available -->
+    <img src="./images/binance_qr.png" alt="Scan Binance QR to Pay Munir_kabir" width="150"/>
+  </a>
+  <br/>Scan with Binance App to pay Munir_kabir
 </p>
 
 ## ⭐ Star History
