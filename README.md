@@ -156,12 +156,11 @@ This tool is provided for educational and research purposes only. The user assum
 
 ## ☕ Support the Project
 
-If you find this tool helpful, consider supporting its development:
+If you find this tool helpful, consider supporting its development via:
 
-<p align="center">
-  <a href="https://www.buymeacoffee.com/black12" target="_blank">
-    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >
-  </a>
+*   **Skrill:** [Send 10 USD via Skrill](https://skrill.me/rq/Munir%20Ayub/10/USD?key=1VqVrQ2Ly1LN5JmgKpAlzoMGBEg)
+*   **PayPal:** [Donate via PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=muay01111@gmail.com&item_name=Support+Cursor+Bypass+Tool&currency_code=USD)
+
 </p>
 
 ## ⭐ Star History
