@@ -39,6 +39,7 @@ a = Analysis(
         ('block_domain.txt', '.')
     ],
     hiddenimports=[
+        'colorama',
         'cursor_auth',
         'reset_machine_manual',
         'new_signup',
