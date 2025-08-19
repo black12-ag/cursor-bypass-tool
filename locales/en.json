@@ -32,7 +32,9 @@
         "exiting": "Exiting ……",
         "bypass_version_check": "Bypass Cursor Version Check",
         "check_user_authorized": "Check User Authorized",
-        "bypass_token_limit": "Bypass Token Limit"
+        "bypass_token_limit": "Bypass Token Limit",
+        "restore_machine_id": "Restore Machine ID",
+        "manual_custom_auth": "Manual Custom Auth"
     },
     "languages": {
         "en": "English",

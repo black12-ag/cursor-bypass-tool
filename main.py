@@ -12,6 +12,15 @@ import subprocess
 from config import get_config, force_update_config
 import shutil
 import re
+from utils import get_user_documents_path  
+
+# Add these imports for Arabic support
+try:
+    import arabic_reshaper
+    from bidi.algorithm import get_display
+except ImportError:
+    arabic_reshaper = None
+    get_display = None
 
 # Only import windll on Windows systems
 if platform.system() == 'Windows':
@@ -79,8 +88,37 @@ def run_as_admin():
 class Translator:
     def __init__(self):
         self.translations = {}
-        self.current_language = self.detect_system_language()  # Use correct method name
-        self.fallback_language = 'en'  # Fallback language if translation is missing
+        self.config = get_config()
+        
+        # Create language cache directory if it doesn't exist
+        if self.config and self.config.has_section('Language'):
+            self.language_cache_dir = self.config.get('Language', 'language_cache_dir')
+            os.makedirs(self.language_cache_dir, exist_ok=True)
+        else:
+            self.language_cache_dir = None
+        
+        # Set fallback language from config if available
+        self.fallback_language = 'en'
+        if self.config and self.config.has_section('Language') and self.config.has_option('Language', 'fallback_language'):
+            self.fallback_language = self.config.get('Language', 'fallback_language')
+        
+        # Load saved language from config if available, otherwise detect system language
+        if self.config and self.config.has_section('Language') and self.config.has_option('Language', 'current_language'):
+            saved_language = self.config.get('Language', 'current_language')
+            if saved_language and saved_language.strip():
+                self.current_language = saved_language
+            else:
+                self.current_language = self.detect_system_language()
+                # Save detected language to config
+                if self.config.has_section('Language'):
+                    self.config.set('Language', 'current_language', self.current_language)
+                    config_dir = os.path.join(get_user_documents_path(), ".cursor-bypass-tool")
+                    config_file = os.path.join(config_dir, "config.ini")
+                    with open(config_file, 'w', encoding='utf-8') as f:
+                        self.config.write(f)
+        else:
+            self.current_language = self.detect_system_language()
+        
         self.load_translations()
     
     def detect_system_language(self):
@@ -126,6 +164,8 @@ class Translator:
                     return 'tr'      # Turkish
                 case 0x0402:
                     return 'bg'      # Bulgarian
+                case 0x0401:
+                    return 'ar'      # Arabic
                 case _:
                     return 'en'       # Default to English
         except:
@@ -166,6 +206,8 @@ class Translator:
                     return 'tr'
                 case s if s.startswith('bg'):
                     return 'bg'
+                case s if s.startswith('ar'):
+                    return 'ar'
                 case _:
                     # Try to get language from LANG environment variable as fallback
                     env_lang = os.getenv('LANG', '').lower()
@@ -190,34 +232,66 @@ class Translator:
                             return 'tr'
                         case s if 'bg' in s:
                             return 'bg'
+                        case s if 'ar' in s:
+                            return 'ar'
                         case _:
                             return 'en'
         except:
             return 'en'
     
-    def load_translations(self):
-        """Load all available translations"""
-        try:
-            locales_dir = os.path.join(os.path.dirname(__file__), 'locales')
-            if hasattr(sys, '_MEIPASS'):
-                locales_dir = os.path.join(sys._MEIPASS, 'locales')
+    def download_language_file(self, lang_code):
+        """Method kept for compatibility but now returns False as language files are integrated"""
+        print(f"{Fore.YELLOW}{EMOJI['INFO']} Languages are now integrated into the package, no need to download.{Style.RESET_ALL}")
+        return False
             
-            if not os.path.exists(locales_dir):
-                print(f"{Fore.RED}{EMOJI['ERROR']} Locales directory not found{Style.RESET_ALL}")
-                return
+    def load_translations(self):
+        """Load all available translations from the integrated package"""
+        try:
+            # Collection of languages we've successfully loaded
+            loaded_languages = set()
+            
+            locales_paths = []
+            
+            # Check for PyInstaller bundle first
+            if hasattr(sys, '_MEIPASS'):
+                locales_paths.append(os.path.join(sys._MEIPASS, 'locales'))
+            
+            # Check script directory next
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            locales_paths.append(os.path.join(script_dir, 'locales'))
+            
+            # Also check current working directory
+            locales_paths.append(os.path.join(os.getcwd(), 'locales'))
+            
+            for locales_dir in locales_paths:
+                if os.path.exists(locales_dir) and os.path.isdir(locales_dir):
+                    for file in os.listdir(locales_dir):
+                        if file.endswith('.json'):
+                            lang_code = file[:-5]  # Remove .json
+                            try:
+                                with open(os.path.join(locales_dir, file), 'r', encoding='utf-8') as f:
+                                    self.translations[lang_code] = json.load(f)
+                                    loaded_languages.add(lang_code)
+                                    loaded_any = True
+                            except (json.JSONDecodeError, UnicodeDecodeError) as e:
+                                print(f"{Fore.RED}{EMOJI['ERROR']} Error loading {file}: {e}{Style.RESET_ALL}")
+                                continue
 
-            for file in os.listdir(locales_dir):
-                if file.endswith('.json'):
-                    lang_code = file[:-5]  # Remove .json
-                    try:
-                        with open(os.path.join(locales_dir, file), 'r', encoding='utf-8') as f:
-                            self.translations[lang_code] = json.load(f)
-                    except (json.JSONDecodeError, UnicodeDecodeError) as e:
-                        print(f"{Fore.RED}{EMOJI['ERROR']} Error loading {file}: {e}{Style.RESET_ALL}")
-                        continue
         except Exception as e:
             print(f"{Fore.RED}{EMOJI['ERROR']} Failed to load translations: {e}{Style.RESET_ALL}")
+            # Create at least minimal English translations for basic functionality
+            self.translations['en'] = {"menu": {"title": "Menu", "exit": "Exit", "invalid_choice": "Invalid choice"}}
     
+    def fix_arabic(self, text):
+        if self.current_language == 'ar' and arabic_reshaper and get_display:
+            try:
+                reshaped_text = arabic_reshaper.reshape(text)
+                bidi_text = get_display(reshaped_text)
+                return bidi_text
+            except Exception:
+                return text
+        return text
+
     def get(self, key, **kwargs):
         """Get translated text with fallback support"""
         try:
@@ -226,7 +300,8 @@ class Translator:
             if result == key and self.current_language != self.fallback_language:
                 # Try fallback language if translation not found
                 result = self._get_translation(self.fallback_language, key)
-            return result.format(**kwargs) if kwargs else result
+            formatted = result.format(**kwargs) if kwargs else result
+            return self.fix_arabic(formatted)
         except Exception:
             return key
     
@@ -299,7 +374,9 @@ def print_menu():
         14: f"{Fore.GREEN}14{Style.RESET_ALL}. {EMOJI['ERROR']}  {translator.get('menu.delete_google_account', fallback='Delete BYPASS CURSUR Google Account')}",
         15: f"{Fore.GREEN}15{Style.RESET_ALL}. {EMOJI['UPDATE']}  {translator.get('menu.bypass_version_check', fallback='Bypass BYPASS CURSUR Version Check')}",
         16: f"{Fore.GREEN}16{Style.RESET_ALL}. {EMOJI['UPDATE']}  {translator.get('menu.check_user_authorized', fallback='Check User Authorized')}",
-        17: f"{Fore.GREEN}17{Style.RESET_ALL}. {EMOJI['UPDATE']}  {translator.get('menu.bypass_token_limit', fallback='Bypass Token Limit')}"
+        17: f"{Fore.GREEN}17{Style.RESET_ALL}. {EMOJI['UPDATE']}  {translator.get('menu.bypass_token_limit', fallback='Bypass Token Limit')}",
+        18: f"{Fore.GREEN}18{Style.RESET_ALL}. {EMOJI['BACKUP']}  {translator.get('menu.restore_machine_id', fallback='Restore Machine ID')}",
+        19: f"{Fore.GREEN}19{Style.RESET_ALL}. {EMOJI['SETTINGS']}  {translator.get('menu.manual_custom_auth', fallback='Manual Custom Auth')}"
     }
     
     # Automatically calculate the number of menu items in the left and right columns
@@ -376,21 +453,45 @@ def select_language():
     print(f"\n{Fore.CYAN}{EMOJI['LANG']} {translator.get('menu.select_language')}:{Style.RESET_ALL}")
     print(f"{Fore.YELLOW}{'─' * 40}{Style.RESET_ALL}")
     
+    # Get available languages either from local directory or GitHub
     languages = translator.get_available_languages()
+    languages_count = len(languages)
+    
+    # Display all available languages with proper indices
     for i, lang in enumerate(languages):
-        lang_name = translator.get(f"languages.{lang}")
+        lang_name = translator.get(f"languages.{lang}", fallback=lang)
         print(f"{Fore.GREEN}{i}{Style.RESET_ALL}. {lang_name}")
     
     try:
-        choice = input(f"\n{EMOJI['ARROW']} {Fore.CYAN}{translator.get('menu.input_choice', choices=f'0-{len(languages)-1}')}: {Style.RESET_ALL}")
-        if choice.isdigit() and 0 <= int(choice) < len(languages):
-            translator.set_language(languages[int(choice)])
+        # Use the actual number of languages in the prompt
+        choice = input(f"\n{EMOJI['ARROW']} {Fore.CYAN}{translator.get('menu.input_choice', choices=f'0-{languages_count-1}')}: {Style.RESET_ALL}")
+        
+        if choice.isdigit() and 0 <= int(choice) < languages_count:
+            selected_language = languages[int(choice)]
+            translator.set_language(selected_language)
+            
+            # Save selected language to config
+            config = get_config()
+            if config and config.has_section('Language'):
+                config.set('Language', 'current_language', selected_language)
+                
+                # Get config path from user documents
+                config_dir = os.path.join(get_user_documents_path(), ".cursor-bypass-tool")
+                config_file = os.path.join(config_dir, "config.ini")
+                
+                # Write updated config
+                with open(config_file, 'w', encoding='utf-8') as f:
+                    config.write(f)
+                
+                print(f"{Fore.GREEN}{EMOJI['SUCCESS']} {translator.get('menu.language_config_saved', language=translator.get(f'languages.{selected_language}', fallback=selected_language))}{Style.RESET_ALL}")
+            
             return True
         else:
-            print(f"{Fore.RED}{EMOJI['ERROR']} {translator.get('menu.invalid_choice')}{Style.RESET_ALL}")
+            # Show invalid choice message with the correct range
+            print(f"{Fore.RED}{EMOJI['ERROR']} {translator.get('menu.lang_invalid_choice', lang_choices=f'0-{languages_count-1}')}{Style.RESET_ALL}")
             return False
-    except (ValueError, IndexError):
-        print(f"{Fore.RED}{EMOJI['ERROR']} {translator.get('menu.invalid_choice')}{Style.RESET_ALL}")
+    except (ValueError, IndexError) as e:
+        print(f"{Fore.RED}{EMOJI['ERROR']} {translator.get('menu.lang_invalid_choice', lang_choices=f'0-{languages_count-1}')}{Style.RESET_ALL}")
         return False
 
 def check_latest_version():
@@ -572,7 +673,7 @@ def main():
     
     while True:
         try:
-            choice_num = 17
+            choice_num = 19
             choice = input(f"\n{EMOJI['ARROW']} {Fore.CYAN}{translator.get('menu.input_choice', choices=f'0-{choice_num}')}: {Style.RESET_ALL}")
 
             match choice:
@@ -633,7 +734,7 @@ def main():
                 case "13":
                     from oauth_auth import OAuthHandler
                     oauth = OAuthHandler(translator)
-                    oauth.select_profile()
+                    oauth._select_profile()
                     print_menu()
                 case "14":
                     import delete_cursor_google
@@ -650,6 +751,14 @@ def main():
                 case "17":
                     import bypass_token_limit
                     bypass_token_limit.run(translator)
+                    print_menu()
+                case "18":
+                    import restore_machine_id
+                    restore_machine_id.run(translator)
+                    print_menu()
+                case "19":
+                    import manual_custom_auth
+                    manual_custom_auth.main(translator)
                     print_menu()
                 case _:
                     print(f"{Fore.RED}{EMOJI['ERROR']} {translator.get('menu.invalid_choice')}{Style.RESET_ALL}")
