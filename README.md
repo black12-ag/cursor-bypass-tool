@@ -1,42 +1,102 @@
-# ➤ Cursor Bypass Tool
+# 🚀 Cursor Bypass Tool
 
 <div align="center">
   <p align="center">
-    <img src="./images/munir_tool.png" alt="Munir Bypass Tool Logo" width="200" style="border-radius: 6px;"/>
+    <img src="./images/logo.png" alt="Cursor Bypass Tool Logo" width="200" style="border-radius: 10px;"/>
   </p>
+  
   <p align="center">
-    [![Release](https://img.shields.io/github/v/release/black12-ag/cursor-bypass-tool)](https://github.com/black12-ag/cursor-bypass-tool/releases/latest)
-    [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey.svg)](https://opensource.org/licenses/MIT)
-    [![Stars](https://img.shields.io/github/stars/black12-ag/cursor-bypass-tool)](https://github.com/black12-ag/cursor-bypass-tool/stargazers)
-    [![Downloads](https://img.shields.io/github/downloads/black12-ag/cursor-bypass-tool/total)](https://github.com/black12-ag/cursor-bypass-tool/releases/latest)
+    <strong>A powerful development workflow enhancement tool</strong><br/>
+    <em>Bypass Cursor limitations and optimize your coding experience</em>
   </p>
-  <h4>Supports Latest Cursor Version</h4>
+
+  <p align="center">
+    <a href="https://github.com/black12-ag/cursor-bypass-tool/releases/latest">
+      <img src="https://img.shields.io/github/v/release/black12-ag/cursor-bypass-tool?style=for-the-badge&logo=github&color=blue" alt="Latest Release"/>
+    </a>
+    <a href="https://github.com/black12-ag/cursor-bypass-tool/blob/main/LICENSE.md">
+      <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="MIT License"/>
+    </a>
+    <a href="https://github.com/black12-ag/cursor-bypass-tool/stargazers">
+      <img src="https://img.shields.io/github/stars/black12-ag/cursor-bypass-tool?style=for-the-badge&logo=star&color=yellow" alt="GitHub Stars"/>
+    </a>
+    <a href="https://github.com/black12-ag/cursor-bypass-tool/releases/latest">
+      <img src="https://img.shields.io/github/downloads/black12-ag/cursor-bypass-tool/total?style=for-the-badge&logo=download&color=brightgreen" alt="Total Downloads"/>
+    </a>
+  </p>
+
+  <p align="center">
+    <img src="https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey?style=flat-square" alt="Cross Platform"/>
+    <img src="https://img.shields.io/badge/Languages-15+-blue?style=flat-square" alt="Multi-language"/>
+    <img src="https://img.shields.io/badge/Cursor-Latest%20Version-green?style=flat-square" alt="Cursor Support"/>
+  </p>
 </div>
 
-A powerful tool to enhance your development workflow by bypassing Cursor limitations. It helps with account registration, data resets, and more.
+---
 
-<!-- 
-  **TODO:** Replace this comment with your new image. 
-  Make sure the image is in the 'images' directory and named appropriately (e.g., munir_tool.png).
-  Example: <img src="./images/munir_tool.png" alt="Munir Bypass Tool" width="800" style="border-radius: 6px;"/>
--->
+## 📋 Table of Contents
 
-**Important Notes:**
-*   For optimal performance, run with administrator/sudo privileges.
-*   Always keep the tool updated to the latest version.
-*   Clean your browser's cache and cookies before use.
-*   Using a VPN for new account creation is recommended.
+- [About](#-about)
+- [Key Features](#-key-features)
+- [System Requirements](#-system-requirements)
+- [Installation](#-installation)
+- [Quick Start](#-quick-start)
+- [Configuration](#%EF%B8%8F-configuration)
+- [Usage Guide](#-usage-guide)
+- [Troubleshooting](#-troubleshooting)
+- [Contributing](#-contributing)
+- [Support](#-support)
+- [License](#-license)
 
-## ✨ Features
+## 🎯 About
 
+**Cursor Bypass Tool** is an advanced, open-source utility designed to enhance your development workflow by providing seamless integration with the Cursor IDE. This powerful tool offers developers unprecedented control over their coding environment, enabling them to bypass various limitations and optimize their productivity.
+
+### 🌟 Why Choose Cursor Bypass Tool?
+
+- **🔓 Freedom**: Bypass restrictive limitations and unlock full potential
+- **🌐 Universal**: Works across Windows, macOS, and Linux platforms
+- **🎨 Multilingual**: Support for 15+ languages with RTL support for Arabic
+- **🔐 Secure**: Multiple authentication methods including OAuth integrations
+- **⚡ Fast**: Optimized performance with intelligent caching
+- **🛠️ Extensible**: Modular architecture for easy customization
+
+### ⚠️ Important Usage Notes
+
+- **🔑 Administrator Privileges**: Run with admin/sudo privileges for optimal performance
+- **🔄 Keep Updated**: Always use the latest version for best compatibility
+- **🧹 Clean Environment**: Clear browser cache and cookies before use
+- **🌍 VPN Recommended**: Use VPN for new account creation to avoid restrictions
+
+## ✨ Key Features
+
+### 🔐 Authentication & Registration
 *   **Google OAuth Authentication:** Register or log in using Google (Lifetime Access).
 *   **GitHub OAuth Authentication:** Register or log in using GitHub (Lifetime Access).
+*   **Manual Authentication:** Input custom tokens and email for authentication.
+*   **Account Manager:** Save and manage account information automatically.
 *   **Automatic Registration:** Easily register new Cursor memberships.
+*   **Email Tabs Support:** Advanced email handling with temporary email providers.
+
+### ⚙️ Configuration & Management
+*   **Machine ID Reset:** Resets Cursor's machine ID and configuration.
+*   **Machine ID Backup & Restore:** Create backups and restore previous machine IDs.
+*   **Token Limit Bypass:** Bypass various token limitations.
+*   **Version Check Bypass:** Bypass version compatibility checks.
+*   **Auto-Update Management:** Control automatic updates and version checks.
+*   **Account Deletion:** Option to remove associated accounts from Cursor.
+
+### 🌍 Multi-language & Accessibility
+*   **Multi-language Support:** UI available in 15+ languages including Arabic, Chinese, Japanese, Italian, etc.
+*   **Arabic Language Support:** Full RTL (Right-to-Left) text support for Arabic.
+*   **Automatic Language Detection:** Detects system language automatically.
 *   **Cross-Platform:** Supports Windows, macOS, and Linux.
-*   **Auth Verification:** Completes the necessary authentication steps.
-*   **Configuration Reset:** Resets Cursor's settings and machine ID.
-*   **Account Deletion:** Option to remove the associated Google account from Cursor.
-*   **Multi-language Support:** UI available in multiple languages (selected automatically or manually).
+
+### 🔧 Advanced Features
+*   **Source Map Support:** Advanced cursor source mapping for version 0.50.5+.
+*   **Chrome Profile Selection:** Select specific Chrome profiles for authentication.
+*   **Enhanced Configuration:** Extensive configuration options with language caching.
+*   **User Authorization Check:** Verify user authorization status.
 
 ## 💻 System Support
 
@@ -46,133 +106,330 @@ A powerful tool to enhance your development workflow by bypassing Cursor limitat
 | macOS            | Intel / Apple Silicon |     ✅     |
 | Linux            | x64 / ARM64   |     ✅     |
 
-## 🚀 Installation & Usage
+## 🚀 Installation
 
-Choose the script for your operating system:
+### Prerequisites
+- Python 3.8 or higher
+- Administrator/sudo privileges (recommended)
+- Active internet connection
+- Cursor IDE installed
 
-<details open>
-<summary><strong>Quick Install & Run Scripts</strong></summary>
+### Quick Installation
 
-### Linux / macOS
+Choose your platform and run the appropriate command:
+
+<details>
+<summary><strong>🐧 Linux / macOS</strong></summary>
 
 ```bash
-# Download, make executable, and run
+# One-line installation
 curl -fsSL https://raw.githubusercontent.com/black12-ag/cursor-bypass-tool/main/scripts/install.sh -o install.sh && chmod +x install.sh && ./install.sh
 ```
 
-### Arch Linux (AUR)
-
+**Alternative: Manual Download**
 ```bash
-# Install using an AUR helper like yay
-yay -S cursor-bypass-tool-git
+# Download and extract
+wget https://github.com/black12-ag/cursor-bypass-tool/archive/main.zip
+unzip main.zip && cd cursor-bypass-tool-main
+python3 -m pip install -r requirements.txt
+python3 main.py
 ```
+</details>
 
-### Windows (PowerShell)
+<details>
+<summary><strong>🪟 Windows</strong></summary>
 
+**PowerShell (Recommended)**
 ```powershell
-# Download and run the installation script
+# Run as Administrator
 irm https://raw.githubusercontent.com/black12-ag/cursor-bypass-tool/main/scripts/install.ps1 | iex
 ```
 
+**Manual Installation**
+```cmd
+# Download from GitHub
+# Extract the ZIP file
+# Open Command Prompt as Administrator
+cd cursor-bypass-tool-main
+pip install -r requirements.txt
+python main.py
+```
 </details>
 
 <details>
-<summary><strong>Manual Machine Reset Scripts</strong></summary>
-
-Use these scripts if you only need to reset Cursor's machine ID and configuration without running the full tool.
-
-### Linux / macOS
+<summary><strong>🏗️ Arch Linux (AUR)</strong></summary>
 
 ```bash
-# Download and run the reset script with sudo
-curl -fsSL https://raw.githubusercontent.com/black12-ag/cursor-bypass-tool/main/scripts/reset.sh | sudo bash
+# Using yay
+yay -S cursor-bypass-tool-git
+
+# Using paru
+paru -S cursor-bypass-tool-git
+
+# Manual build
+git clone https://aur.archlinux.org/cursor-bypass-tool-git.git
+cd cursor-bypass-tool-git
+makepkg -si
 ```
+</details>
 
-### Windows (PowerShell)
+### Quick Reset Scripts
 
-```powershell
-# Download and run the reset script
+For users who only need machine ID reset functionality:
+
+```bash
+# Linux/macOS - Quick reset
+curl -fsSL https://raw.githubusercontent.com/black12-ag/cursor-bypass-tool/main/scripts/reset.sh | sudo bash
+
+# Windows - Quick reset
 irm https://raw.githubusercontent.com/black12-ag/cursor-bypass-tool/main/scripts/reset.ps1 | iex
 ```
 
-</details>
+## 🏃‍♂️ Quick Start
 
-**Stopping the Script:** Press `Ctrl+C` to stop the tool if needed.
+1. **Launch the tool** with administrator privileges
+2. **Select your language** from the available options
+3. **Choose authentication method**:
+   - Google OAuth (recommended)
+   - GitHub OAuth
+   - Manual token input
+4. **Follow the on-screen instructions**
+5. **Enjoy enhanced Cursor experience**
+
+### First Run Checklist
+- [ ] Close Cursor IDE completely
+- [ ] Run tool with admin/sudo privileges
+- [ ] Clear browser cache and cookies
+- [ ] Use VPN for account creation (recommended)
+- [ ] Keep tool updated to latest version
 
 ## ⚙️ Configuration
 
-The tool uses a configuration file (`config.ini`) stored in your `Documents/.Cursor Bypass Tool/` directory. You can customize settings related to browser paths, timing, and other utilities.
+The tool automatically creates a configuration directory at:
+- **Windows**: `%USERPROFILE%\Documents\.cursor-bypass-tool\`
+- **macOS**: `~/Documents/.cursor-bypass-tool/`
+- **Linux**: `~/Documents/.cursor-bypass-tool/`
 
 <details>
-<summary><strong>Example `config.ini` Settings</strong></summary>
+<summary><strong>📝 Configuration File Examples</strong></summary>
 
+**config.ini Structure:**
 ```ini
-[Chrome]
-# Path to your Google Chrome executable
-chromepath = C:\Program Files\Google\Chrome\Application\chrome.exe
-
-[Turnstile]
-# Time delays for handling CAPTCHAs
-handle_turnstile_time = 2
-handle_turnstile_random_time = 1-3
-
-[OSPaths]
-# Paths to Cursor's internal files (usually detected automatically)
-storage_path = /Users/username/Library/Application Support/Cursor/User/globalStorage/storage.json
-sqlite_path = /Users/username/Library/Application Support/Cursor/User/globalStorage/state.vscdb
-machine_id_path = /Users/username/Library/Application Support/Cursor/machineId
-# Linux path: ~/.config/cursor/machineid
+[Browser]
+default_browser = chrome
+chrome_path = /path/to/chrome
+# ... other browser settings
 
 [Timing]
-# Various time delays (in seconds) for browser automation steps
 min_random_time = 0.1
 max_random_time = 0.8
-# ... other timing settings ...
 max_timeout = 160
+# ... timing configurations
+
+[Language]
+current_language = en
+fallback_language = en
+auto_update_languages = True
+
+[OAuth]
+timeout = 120
+max_attempts = 3
 
 [Utils]
-# Enable/disable checking for updates on startup
-check_update = True
-# Show account information on startup
-show_account_info = True
+enabled_update_check = True
+enabled_account_info = True
 ```
-
 </details>
 
-## ❓ Troubleshooting & Common Issues
+## 📖 Usage Guide
 
-*   **Permission Errors:** Ensure you run the script with administrator privileges (Windows) or `sudo` (Linux/macOS).
-*   **'User is not authorized' Error:** This usually means the email used (especially temporary ones) was flagged or banned by Cursor. Try using a different, non-temporary email provider.
-*   **Script Issues:** Make sure Cursor application is completely closed before running the tool.
+### Main Menu Options
 
-## 🤝 Contribution
+| Option | Description | Access Level |
+|:-------|:-----------:|:-------------:|
+| 🔐 **Google OAuth** | Register/login with Google account | Standard |
+| 🐙 **GitHub OAuth** | Register/login with GitHub account | Standard |
+| ⚙️ **Manual Auth** | Custom token authentication | Advanced |
+| 💾 **Account Manager** | Manage saved accounts | Standard |
+| 🔄 **Reset Machine ID** | Reset system identification | Admin |
+| 💾 **Backup/Restore** | Manage machine ID backups | Admin |
+| 🌍 **Language Settings** | Change interface language | Standard |
 
-Issues and Pull Requests are welcome! Feel free to contribute to the project.
+### Authentication Workflows
 
-## 📜 Disclaimer
+<details>
+<summary><strong>🔑 OAuth Authentication</strong></summary>
 
-This tool is provided for educational and research purposes only. The user assumes all responsibility for any consequences arising from its use. Please respect Cursor's terms of service.
+1. Select OAuth method (Google/GitHub)
+2. Browser window opens automatically
+3. Complete authentication in browser
+4. Tool automatically captures tokens
+5. Account information saved for future use
+</details>
 
-## ☕ Support the Project
+<details>
+<summary><strong>⚙️ Manual Authentication</strong></summary>
 
-If you find this tool helpful, consider supporting its development via:
+1. Select "Manual Custom Auth"
+2. Enter access token directly
+3. Choose authentication type (Auth_0/Google/GitHub)
+4. Generate or enter email address
+5. Validate and save configuration
+</details>
 
-*   **Skrill:** [Send 10 USD via Skrill](https://skrill.me/rq/Munir%20Ayub/10/USD?key=1VqVrQ2Ly1LN5JmgKpAlzoMGBEg)
-*   **PayPal:** [Donate via PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=muay01111@gmail.com&item_name=Support+Cursor+Bypass+Tool&currency_code=USD)
+## 🔧 Troubleshooting
 
-<p align="center">
-  <a href="#binance-payment"> <!-- TODO: Replace #binance-payment with your actual Binance payment link if available -->
-    <img src="./images/binance_qr.png" alt="Scan Binance QR to Pay Munir_kabir" width="150"/>
-  </a>
-  <br/>Scan with Binance App to pay Munir_kabir
-</p>
+### Common Issues & Solutions
 
-## ⭐ Star History
+<details>
+<summary><strong>❌ Permission Errors</strong></summary>
+
+**Problem**: Tool can't access system files
+**Solution**: 
+- Windows: Run as Administrator
+- macOS/Linux: Use `sudo` command
+- Check file permissions in config directory
+</details>
+
+<details>
+<summary><strong>🚫 "User not authorized" Error</strong></summary>
+
+**Problem**: Email flagged or banned by Cursor
+**Solution**:
+- Use different email provider (avoid temporary emails)
+- Clear browser data completely
+- Try with VPN from different location
+- Use established email account
+</details>
+
+<details>
+<summary><strong>🔄 Browser Automation Issues</strong></summary>
+
+**Problem**: Browser doesn't open or respond
+**Solution**:
+- Update browser to latest version
+- Check browser path in config
+- Disable browser extensions
+- Clear browser cache and cookies
+</details>
+
+<details>
+<summary><strong>🌐 Network Connectivity</strong></summary>
+
+**Problem**: Tool can't connect to servers
+**Solution**:
+- Check internet connection
+- Disable VPN temporarily
+- Check firewall settings
+- Verify DNS resolution
+</details>
+
+### Debug Mode
+
+Enable debug mode for detailed logging:
+```bash
+python main.py --debug
+```
+
+### Log Files
+
+Check log files for detailed error information:
+- **Windows**: `%USERPROFILE%\Documents\.cursor-bypass-tool\logs\`
+- **macOS/Linux**: `~/Documents/.cursor-bypass-tool/logs/`
+
+## 🤝 Contributing
+
+We welcome contributions from the community! Here's how you can help:
+
+### 🐛 Bug Reports
+1. Check existing issues first
+2. Use the bug report template
+3. Include system information and logs
+4. Provide steps to reproduce
+
+### 🚀 Feature Requests
+1. Search existing feature requests
+2. Use the feature request template
+3. Explain use case and benefits
+4. Provide implementation suggestions
+
+### 💻 Code Contributions
+1. Fork the repository
+2. Create a feature branch
+3. Follow coding standards
+4. Add tests for new features
+5. Update documentation
+6. Submit pull request
+
+### 🌍 Translations
+Help translate the tool into your language:
+1. Copy `locales/en.json` as template
+2. Translate all strings
+3. Test with your language
+4. Submit translation via PR
+
+## 📞 Support
+
+### 💬 Community Support
+- **GitHub Issues**: [Report bugs and request features](https://github.com/black12-ag/cursor-bypass-tool/issues)
+- **Discussions**: [Community discussions and Q&A](https://github.com/black12-ag/cursor-bypass-tool/discussions)
+
+### 📧 Direct Support
+For urgent issues or private inquiries, contact the development team.
+
+### 💝 Financial Support
+
+If this tool has helped improve your development workflow, consider supporting its continued development:
 
 <div align="center">
-  [![Star History Chart](https://api.star-history.com/svg?repos=black12-ag/cursor-bypass-tool&type=Date)](https://star-history.com/#black12-ag/cursor-bypass-tool&Date)
+  <p><strong>Support Development</strong></p>
+  
+  <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=muay01111@gmail.com&item_name=Support+Cursor+Bypass+Tool&currency_code=USD">
+    <img src="https://img.shields.io/badge/PayPal-Donate-blue?style=for-the-badge&logo=paypal" alt="Donate via PayPal"/>
+  </a>
+  
+  <a href="https://skrill.me/rq/Munir%20Ayub/10/USD?key=1VqVrQ2Ly1LN5JmgKpAlzoMGBEg">
+    <img src="https://img.shields.io/badge/Skrill-Send%20%2410-orange?style=for-the-badge" alt="Send via Skrill"/>
+  </a>
 </div>
+
+## 📈 Project Statistics
+
+<div align="center">
+  <img src="https://api.star-history.com/svg?repos=black12-ag/cursor-bypass-tool&type=Date" alt="Star History Chart" width="600"/>
+</div>
+
+## 🔒 Security & Privacy
+
+- **🔐 Local Processing**: All operations performed locally
+- **🚫 No Data Collection**: Tool doesn't collect personal information
+- **🔒 Secure Authentication**: Uses industry-standard OAuth protocols
+- **🛡️ Open Source**: Code is fully auditable and transparent
+
+## ⚠️ Disclaimer
+
+This tool is provided for educational and research purposes only. Users assume all responsibility for compliance with applicable terms of service and local laws. The developers are not responsible for any consequences arising from the use of this software.
+
+**Use responsibly and respect service provider terms.**
 
 ## 📝 License
 
-This project is licensed under the [MIT License](LICENSE.md).
+This project is licensed under the **MIT License** - see the [LICENSE.md](LICENSE.md) file for complete details.
+
+```
+MIT License - Free to use, modify, and distribute
+Copyright (c) 2024 Cursor Bypass Tool Contributors
+```
+
+---
+
+<div align="center">
+  <p>
+    <strong>Made with ❤️ by the open source community</strong><br/>
+    <sub>⭐ Star this repo if it helped you! ⭐</sub>
+  </p>
+  
+  <p>
+    <a href="#-cursor-bypass-tool">Back to Top ↑</a>
+  </p>
+</div>

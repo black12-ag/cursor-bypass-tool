@@ -1,0 +1,337 @@
+name: Build Executables
+
+on:
+  workflow_dispatch:
+    inputs:
+      use_env_version:
+        description: 'Use version from .env file (yes/no)'
+        required: true
+        default: 'yes'
+      version:
+        description: 'Version number (only used if not using .env version)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+  actions: write
+  packages: write
+
+jobs:
+  determine-version:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.set-version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Get version from .env file
+        id: env-version
+        if: ${{ github.event.inputs.use_env_version == 'yes' }}
+        run: |
+          VERSION=$(grep "^version=" .env | cut -d'=' -f2)
+          echo "ENV_VERSION=$VERSION" >> $GITHUB_ENV
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Using version from .env file: $VERSION"
+      
+      - name: Use manual version
+        id: manual-version
+        if: ${{ github.event.inputs.use_env_version != 'yes' }}
+        run: |
+          echo "version=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+          echo "Using manually entered version: ${{ github.event.inputs.version }}"
+      
+      - name: Set final version
+        id: set-version
+        run: |
+          if [ "${{ github.event.inputs.use_env_version }}" == "yes" ]; then
+            echo "version=${{ env.ENV_VERSION }}" >> $GITHUB_OUTPUT
+          else
+            echo "version=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+          fi
+
+  create-tag:
+    needs: determine-version
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # 获取所有标签
+          
+      - name: Check if tag exists
+        id: check_tag
+        run: |
+          if git ls-remote --tags origin | grep -q "refs/tags/v${{ needs.determine-version.outputs.version }}"; then
+            echo "Tag v${{ needs.determine-version.outputs.version }} already exists, will use existing tag"
+            echo "tag_exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "Tag v${{ needs.determine-version.outputs.version }} does not exist, will create new tag"
+            echo "tag_exists=false" >> $GITHUB_OUTPUT
+          fi
+          
+      - name: Create Tag if not exists
+        if: steps.check_tag.outputs.tag_exists == 'false'
+        run: |
+          git tag "v${{ needs.determine-version.outputs.version }}"
+          git push origin "v${{ needs.determine-version.outputs.version }}"
+
+  build-windows:
+    needs: [determine-version, create-tag]
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    
+    - name: Set version
+      shell: bash
+      run: echo "VERSION=${{ needs.determine-version.outputs.version }}" >> $GITHUB_ENV
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pyinstaller
+        pip install -r requirements.txt
+        
+    - name: Build EXE
+      run: |
+        pyinstaller build.spec
+         
+    - name: Upload Windows artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: CursorFreeVIP_${{ env.VERSION }}_windows.exe
+        path: dist/CursorFreeVIP_${{ env.VERSION }}_windows.exe
+
+  build-macos-arm64:
+    needs: [determine-version, create-tag]
+    runs-on: macos-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    
+    - name: Set version
+      shell: bash
+      run: echo "VERSION=${{ needs.determine-version.outputs.version }}" >> $GITHUB_ENV
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pyinstaller
+        pip install -r requirements.txt
+        
+    - name: Build MacOS ARM executable
+      run: |
+        pyinstaller build.spec
+        mv "dist/CursorFreeVIP_${{ env.VERSION }}_mac" "dist/CursorFreeVIP_${{ env.VERSION }}_mac_arm64"
+
+    - name: Upload MacOS ARM artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: CursorFreeVIP_${{ env.VERSION }}_mac_arm64
+        path: dist/CursorFreeVIP_${{ env.VERSION }}_mac_arm64
+
+  build-linux-x64:
+    needs: [determine-version, create-tag]
+    runs-on: ubuntu-22.04
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    
+    - name: Set version
+      shell: bash
+      run: echo "VERSION=${{ needs.determine-version.outputs.version }}" >> $GITHUB_ENV
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pyinstaller
+        pip install -r requirements.txt
+        
+    - name: Build Linux x64 executable
+      env:
+        VERSION: ${{ env.VERSION }}
+      run: |
+        pyinstaller build.spec
+        mv "dist/CursorFreeVIP_${{ env.VERSION }}_linux" "dist/CursorFreeVIP_${{ env.VERSION }}_linux_x64"
+        echo "Contents of dist directory:"
+        ls -la dist/
+        
+    - name: Upload Linux x64 artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: CursorFreeVIP_${{ env.VERSION }}_linux_x64
+        path: dist/CursorFreeVIP_${{ env.VERSION }}_linux_x64
+
+  build-linux-arm64:
+    needs: [determine-version, create-tag]
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v2
+      with:
+        platforms: arm64
+    
+    - name: Set version
+      shell: bash
+      run: echo "VERSION=${{ needs.determine-version.outputs.version }}" >> $GITHUB_ENV
+    
+    - name: Build in ARM64 Docker container
+      run: |
+        docker run --rm --platform linux/arm64 -v ${{ github.workspace }}:/app -w /app arm64v8/python:3.10-slim bash -c "
+          apt-get update && apt-get install -y build-essential
+          pip install --upgrade pip
+          pip install pyinstaller
+          pip install -r requirements.txt
+          python -m PyInstaller build.spec
+          mv /app/dist/CursorFreeVIP_${{ env.VERSION }}_linux /app/dist/CursorFreeVIP_${{ env.VERSION }}_linux_arm64
+        "
+        echo "Contents of dist directory:"
+        ls -la dist/
+        
+    - name: Upload Linux ARM64 artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: CursorFreeVIP_${{ env.VERSION }}_linux_arm64
+        path: dist/CursorFreeVIP_${{ env.VERSION }}_linux_arm64
+
+  build-macos-intel:
+    needs: [determine-version, create-tag]
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Set version
+      shell: bash
+      run: echo "VERSION=${{ needs.determine-version.outputs.version }}" >> $GITHUB_ENV
+
+    - name: Install dependencies
+      run: |
+        arch -x86_64 pip3 install --upgrade pip
+        arch -x86_64 pip3 install pyinstaller
+        arch -x86_64 pip3 install -r requirements.txt
+
+    - name: Build MacOS Intel executable
+      env:
+        TARGET_ARCH: 'x86_64'
+        VERSION: ${{ env.VERSION }}
+      run: |
+        arch -x86_64 python3 -m PyInstaller build.spec
+        mv "dist/CursorFreeVIP_${{ env.VERSION }}_mac" "dist/CursorFreeVIP_${{ env.VERSION }}_mac_intel"
+        
+    - name: Upload MacOS Intel artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: CursorFreeVIP_${{ env.VERSION }}_mac_intel
+        path: dist/CursorFreeVIP_${{ env.VERSION }}_mac_intel
+
+  create-release:
+    needs: [determine-version, build-windows, build-macos-arm64, build-linux-x64, build-linux-arm64, build-macos-intel]
+    runs-on: ubuntu-22.04
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Get version
+        shell: bash
+        run: echo "VERSION=${{ needs.determine-version.outputs.version }}" >> $GITHUB_ENV
+          
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Calculate SHA256 checksums
+        run: |
+          mkdir -p checksums
+          for file in artifacts/CursorFreeVIP_${{ env.VERSION }}_windows.exe/CursorFreeVIP_${{ env.VERSION }}_windows.exe \
+                      artifacts/CursorFreeVIP_${{ env.VERSION }}_mac_arm64/CursorFreeVIP_${{ env.VERSION }}_mac_arm64 \
+                      artifacts/CursorFreeVIP_${{ env.VERSION }}_linux_x64/CursorFreeVIP_${{ env.VERSION }}_linux_x64 \
+                      artifacts/CursorFreeVIP_${{ env.VERSION }}_linux_arm64/CursorFreeVIP_${{ env.VERSION }}_linux_arm64 \
+                      artifacts/CursorFreeVIP_${{ env.VERSION }}_mac_intel/CursorFreeVIP_${{ env.VERSION }}_mac_intel
+          do
+            if [ -f "$file" ]; then
+              filename=$(basename $file)
+              sha256sum "$file" | cut -d ' ' -f 1 > checksums/${filename}.sha256
+              echo "${filename}: $(cat checksums/${filename}.sha256)" >> checksums/all_checksums.txt
+            else
+              echo "Warning: File $file not found"
+            fi
+          done
+          cat checksums/all_checksums.txt
+
+      - name: Extract release notes from CHANGELOG
+        run: |
+          version_pattern="## v${{ env.VERSION }}"
+          next_version_pattern="## v"
+          
+          # Find the start line number of the current version
+          start_line=$(grep -n "$version_pattern" CHANGELOG.md | head -1 | cut -d: -f1)
+          
+          if [ -z "$start_line" ]; then
+            echo "Error: Version ${{ env.VERSION }} not found in CHANGELOG.md"
+            exit 1
+          fi
+          
+          # Find the line number of the next version
+          next_version_line=$(tail -n +$((start_line + 1)) CHANGELOG.md | grep -n "$next_version_pattern" | head -1 | cut -d: -f1)
+          
+          if [ -z "$next_version_line" ]; then
+            # If there's no next version, get to the end of the file
+            changelog_content=$(tail -n +$start_line CHANGELOG.md)
+          else
+            # Extract content between current version and next version
+            end_line=$((start_line + next_version_line - 1))
+            changelog_content=$(sed -n "${start_line},${end_line}p" CHANGELOG.md)
+          fi
+          
+          # Create release notes file
+          {
+            echo "$changelog_content"
+            echo ""
+            echo "## SHA256 Checksums"
+            cat checksums/all_checksums.txt
+          } > release_notes.md
+          
+          # Display release notes for debugging
+          cat release_notes.md
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ env.VERSION }}
+          body_path: release_notes.md
+          files: |
+            artifacts/CursorFreeVIP_${{ env.VERSION }}_windows.exe/CursorFreeVIP_${{ env.VERSION }}_windows.exe
+            artifacts/CursorFreeVIP_${{ env.VERSION }}_mac_arm64/CursorFreeVIP_${{ env.VERSION }}_mac_arm64
+            artifacts/CursorFreeVIP_${{ env.VERSION }}_linux_x64/CursorFreeVIP_${{ env.VERSION }}_linux_x64
+            artifacts/CursorFreeVIP_${{ env.VERSION }}_linux_arm64/CursorFreeVIP_${{ env.VERSION }}_linux_arm64
+            artifacts/CursorFreeVIP_${{ env.VERSION }}_mac_intel/CursorFreeVIP_${{ env.VERSION }}_mac_intel
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
