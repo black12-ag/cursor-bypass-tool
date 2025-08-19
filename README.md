@@ -2,7 +2,7 @@
 
 <div align="center">
   <p align="center">
-    <img src="./images/logo.png" alt="Cursor Pro - Advanced IDE Enhancement Suite" width="240" style="border-radius: 15px; box-shadow: 0 8px 32px rgba(0,0,0,0.3);"/>
+    <img src="./images/logo.png" alt="MaskID" width="240" style="border-radius: 15px; box-shadow: 0 8px 32px rgba(0,0,0,0.3);"/>
   </p>
   
   <p align="center" style="margin: 20px 0;">
