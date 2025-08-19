@@ -1,6 +1,6 @@
-# Contributing to Cursor Bypass Tool
+# Contributing to Cursor Pro
 
-We're thrilled that you're interested in contributing to the Cursor Bypass Tool! This document provides guidelines for contributing to this open-source project.
+We're thrilled that you're interested in contributing to **Cursor Pro** - the enterprise-grade IDE enhancement suite! This document provides comprehensive guidelines for contributing to our professional development ecosystem.
 
 ## 🌟 Ways to Contribute
 
