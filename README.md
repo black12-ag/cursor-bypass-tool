@@ -1,10 +1,6 @@
 # 🎯 Cursor Pro
 
 <div align="center">
-  <p align="center">
-    <img src="./images/logo.png" alt="MaskID" width="240" style="border-radius: 15px; box-shadow: 0 8px 32px rgba(0,0,0,0.3);"/>
-  </p>
-  
   <p align="center" style="margin: 20px 0;">
     <strong style="font-size: 1.2em; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Enterprise-Grade IDE Enhancement Suite</strong><br/>
     <em style="font-size: 1.1em; color: #666;">Advanced MaskID Technology • Professional Workflow Optimization</em>
