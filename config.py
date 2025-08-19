@@ -32,7 +32,7 @@ def setup_config(translator=None):
             docs_path = os.path.abspath('.')
         
         # normalize path
-        config_dir = os.path.normpath(os.path.join(docs_path, ".BYPASS CURSUR"))
+        config_dir = os.path.normpath(os.path.join(docs_path, ".cursor-bypass-tool"))
         config_file = os.path.normpath(os.path.join(config_dir, "config.ini"))
         
         # create config directory, only print message when directory not exists
@@ -44,7 +44,7 @@ def setup_config(translator=None):
         except Exception as e:
             # if cannot create directory, use temporary directory
             import tempfile
-            temp_dir = os.path.normpath(os.path.join(tempfile.gettempdir(), ".BYPASS CURSUR"))
+            temp_dir = os.path.normpath(os.path.join(tempfile.gettempdir(), ".cursor-bypass-tool"))
             temp_exists = os.path.exists(temp_dir)
             config_dir = temp_dir
             config_file = os.path.normpath(os.path.join(config_dir, "config.ini"))
@@ -105,6 +105,12 @@ def setup_config(translator=None):
             'Token': {
                 'refresh_server': 'https://token.cursorpro.com.cn',
                 'enable_refresh': True
+            },
+            'Language': {
+                'current_language': '',  # Set by local system detection if empty
+                'fallback_language': 'en',
+                'auto_update_languages': 'True',
+                'language_cache_dir': os.path.join(config_dir, "language_cache")
             }
         }
 
@@ -304,7 +310,7 @@ def print_config(config, translator=None):
             print(f"  {key} = {value_display}")
     
     print(f"\n{Fore.CYAN}{'─' * 70}{Style.RESET_ALL}")
-    config_dir = os.path.join(get_user_documents_path(), ".BYPASS CURSUR", "config.ini")
+    config_dir = os.path.join(get_user_documents_path(), ".cursor-bypass-tool", "config.ini")
     print(f"{Fore.CYAN}{EMOJI['INFO']} {translator.get('config.config_directory') if translator else 'Config Directory'}: {config_dir}{Style.RESET_ALL}")
 
     print()  
@@ -318,7 +324,7 @@ def force_update_config(translator=None):
         ConfigParser instance or None if failed
     """
     try:
-        config_dir = os.path.join(get_user_documents_path(), ".BYPASS CURSUR")
+        config_dir = os.path.join(get_user_documents_path(), ".cursor-bypass-tool")
         config_file = os.path.join(config_dir, "config.ini")
         current_time = datetime.datetime.now()
 

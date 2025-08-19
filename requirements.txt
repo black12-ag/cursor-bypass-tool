@@ -8,3 +8,6 @@ pyinstaller
 DrissionPage>=4.0.0
 selenium
 webdriver_manager
+arabic-reshaper
+python-bidi
+faker

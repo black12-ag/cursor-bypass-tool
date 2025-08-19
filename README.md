@@ -29,14 +29,33 @@ A powerful tool to enhance your development workflow by bypassing Cursor limitat
 
 ## ✨ Features
 
+### 🔐 Authentication & Registration
 *   **Google OAuth Authentication:** Register or log in using Google (Lifetime Access).
 *   **GitHub OAuth Authentication:** Register or log in using GitHub (Lifetime Access).
+*   **Manual Authentication:** Input custom tokens and email for authentication.
+*   **Account Manager:** Save and manage account information automatically.
 *   **Automatic Registration:** Easily register new Cursor memberships.
+*   **Email Tabs Support:** Advanced email handling with temporary email providers.
+
+### ⚙️ Configuration & Management
+*   **Machine ID Reset:** Resets Cursor's machine ID and configuration.
+*   **Machine ID Backup & Restore:** Create backups and restore previous machine IDs.
+*   **Token Limit Bypass:** Bypass various token limitations.
+*   **Version Check Bypass:** Bypass version compatibility checks.
+*   **Auto-Update Management:** Control automatic updates and version checks.
+*   **Account Deletion:** Option to remove associated accounts from Cursor.
+
+### 🌍 Multi-language & Accessibility
+*   **Multi-language Support:** UI available in 15+ languages including Arabic, Chinese, Japanese, Italian, etc.
+*   **Arabic Language Support:** Full RTL (Right-to-Left) text support for Arabic.
+*   **Automatic Language Detection:** Detects system language automatically.
 *   **Cross-Platform:** Supports Windows, macOS, and Linux.
-*   **Auth Verification:** Completes the necessary authentication steps.
-*   **Configuration Reset:** Resets Cursor's settings and machine ID.
-*   **Account Deletion:** Option to remove the associated Google account from Cursor.
-*   **Multi-language Support:** UI available in multiple languages (selected automatically or manually).
+
+### 🔧 Advanced Features
+*   **Source Map Support:** Advanced cursor source mapping for version 0.50.5+.
+*   **Chrome Profile Selection:** Select specific Chrome profiles for authentication.
+*   **Enhanced Configuration:** Extensive configuration options with language caching.
+*   **User Authorization Check:** Verify user authorization status.
 
 ## 💻 System Support
 

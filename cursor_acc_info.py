@@ -55,9 +55,9 @@ class UsageManager:
     @staticmethod
     def get_usage(token: str) -> Optional[Dict]:
         """get usage"""
-        url = f"https://api.{Config.NAME_LOWER}.sh/api/usage"
+        url = f"https://www.{Config.NAME_LOWER}.com/api/usage"
         headers = Config.BASE_HEADERS.copy()
-        headers.update({"Authorization": f"Bearer {token}"})
+        headers.update({"Cookie": f"Workos{Config.NAME_CAPITALIZE}SessionToken=user_01OOOOOOOOOOOOOOOOOOOOOOOO%3A%3A{token}"})
         try:
             proxies = UsageManager.get_proxy()
             response = requests.get(url, headers=headers, timeout=10, proxies=proxies)
@@ -91,7 +91,7 @@ class UsageManager:
     @staticmethod
     def get_stripe_profile(token: str) -> Optional[Dict]:
         """get user subscription info"""
-        url = f"https://api.cursor.sh/auth/full_stripe_profile"  # Fixed URL
+        url = f"https://api2.{Config.NAME_LOWER}.sh/auth/full_stripe_profile"
         headers = Config.BASE_HEADERS.copy()
         headers.update({"Authorization": f"Bearer {token}"})
         try:
@@ -549,4 +549,4 @@ def main(translator=None):
         print(f"{Fore.RED}{EMOJI['ERROR']} {translator.get('account_info.error') if translator else 'Error'}: {str(e)}{Style.RESET_ALL}")
 
 if __name__ == "__main__":
-    main()
+    main() 
