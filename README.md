@@ -99,6 +99,81 @@ irm https://raw.githubusercontent.com/black12-ag/cursor-bypass-tool/main/scripts
 
 **Stopping the Script:** Press `Ctrl+C` to stop the tool if needed.
 
+## 🎬 Installation Demo
+
+<details>
+<summary><strong>What to Expect During Installation</strong></summary>
+
+### macOS/Linux Installation Process
+
+When you run the installation command, here's what you'll see:
+
+```bash
+$ curl -fsSL https://raw.githubusercontent.com/black12-ag/cursor-bypass-tool/main/scripts/install.sh -o install.sh && chmod +x install.sh && ./install.sh
+
+   ███╗   ███╗██╗   ██╗███╗   ██╗██╗██████╗     
+   ████╗ ████║██║   ██║████╗  ██║██║██╔══██╗    
+   ██╔████╔██║██║   ██║██╔██╗ ██║██║██████╔╝    
+   ██║╚██╔╝██║██║   ██║██║╚██╗██║██║██╔══██╗    
+   ██║ ╚═╝ ██║╚██████╔╝██║ ╚████║██║██║  ██║    
+   ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝╚═╝  ╚═╝    
+
+ℹ️ Checking latest version...
+✅ Found latest version: 1.0.0
+ℹ️ Detected macOS Intel architecture
+✅ Found existing installation file
+ℹ️ Location: /Users/username/Downloads/CursorFreeVIP_1.0.0_mac_intel
+⚠️ Requesting administrator privileges...
+ℹ️ Starting program with sudo...
+Password: [Enter your macOS password]
+```
+
+### macOS Security Notice
+
+If you see `Killed: 9`, this is **normal** - macOS Gatekeeper is blocking unsigned binaries. To fix:
+
+```bash
+# Remove quarantine attribute
+sudo xattr -rd com.apple.quarantine ~/Downloads/CursorFreeVIP_1.0.0_mac_intel
+
+# Run the tool
+sudo ~/Downloads/CursorFreeVIP_1.0.0_mac_intel
+```
+
+### Expected Program Interface
+
+Once running, you'll see the main menu:
+
+```
+🚀 MUNIR Pro Version Activator v1.9.05
+Author: MUNIR KABIR
+Press 8 to change language | 按下 8 键切换语言
+
+📋 Main Menu:
+──────────────────────────────────────────────────────────────
+0. ❌ Exit                           9. 🔄 Disable Auto Update
+1. 🔄 Reset Machine ID              10. 🔄 Total Reset
+2. ✅ Register Account (Legacy)     11. 🤝 Contributors
+3. 🌟 Register Google Account 🚀   12. ⚙️ Configuration
+4. ⭐ Register GitHub Account 🚀    13. ⚙️ Chrome Profile
+5. ✅ Manual Registration           14. ❌ Delete Google Account
+6. 🔄 GitHub Register (Beta)        15. 🔄 Bypass Version Check
+7. ❌ Quit Cursor                   16. 🔄 Check Authorization
+8. 🌐 Select Language               17. 🔄 Bypass Token Limit
+──────────────────────────────────────────────────────────────
+
+➜ Enter choice (0-17):
+```
+
+### Success Indicators
+
+- ✅ **Green checkmarks** indicate successful operations
+- 🔄 **Blue symbols** show processes in progress  
+- ⚠️ **Yellow warnings** are informational
+- ❌ **Red X** indicates errors or exit options
+
+</details>
+
 ## ⚙️ Configuration
 
 The tool uses a configuration file (`config.ini`) stored in your `Documents/.Cursor Bypass Tool/` directory. You can customize settings related to browser paths, timing, and other utilities.
@@ -141,9 +216,21 @@ show_account_info = True
 
 ## ❓ Troubleshooting & Common Issues
 
+### macOS Issues
+*   **"Killed: 9" Error:** macOS Gatekeeper blocks unsigned binaries. Fix with:
+    ```bash
+    sudo xattr -rd com.apple.quarantine ~/Downloads/CursorFreeVIP_*_mac_*
+    sudo ~/Downloads/CursorFreeVIP_*_mac_*
+    ```
+*   **"Cannot be opened" Error:** Go to System Preferences → Security & Privacy → Allow the app, then retry.
+*   **Permission Denied:** Ensure you run with `sudo` and enter your password when prompted.
+
+### General Issues
 *   **Permission Errors:** Ensure you run the script with administrator privileges (Windows) or `sudo` (Linux/macOS).
 *   **'User is not authorized' Error:** This usually means the email used (especially temporary ones) was flagged or banned by Cursor. Try using a different, non-temporary email provider.
 *   **Script Issues:** Make sure Cursor application is completely closed before running the tool.
+*   **Python Version Error:** If you see syntax errors, you need Python 3.10+ or use the pre-built binaries instead.
+*   **Network Issues:** Ensure stable internet connection. Some features require accessing external services.
 
 ## 🤝 Contribution
 
