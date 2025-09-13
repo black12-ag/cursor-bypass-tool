@@ -247,14 +247,20 @@ show_account_info = True
 
 </div>
 
+---
+
 <div align="center">
 
-## 📜 **Disclaimer & License**
+## 📜 **Copyright & License**
 
-🏭 **Educational Use Only** | 📜 **MIT License** | ⚙️ **Use Responsibly**
+**© 2024 [MUNIR KABIR](https://github.com/black12-ag). All rights reserved.**
+
+📜 **MIT License** | 🏭 **Educational Use Only** | ⚙️ **Use Responsibly**
 
 <em>This tool is provided for educational and research purposes. Users assume all responsibility for compliance with Cursor's terms of service.</em>
 
-**Made with ❤️ by [MUNIR KABIR](https://github.com/black12-ag)**
+---
+
+**Made with ❤️ by MUNIR KABIR**
 
 </div>
