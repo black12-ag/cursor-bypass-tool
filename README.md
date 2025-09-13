@@ -15,6 +15,8 @@
 
 A powerful tool to enhance your development workflow by bypassing Cursor limitations. It helps with account registration, data resets, and more.
 
+> 🎉 **LATEST UPDATE (Sept 2024):** Fixed installation issues that were causing downloads to fail for YouTube users. The install script now works reliably across all supported platforms!
+
 <!-- 
   **TODO:** Replace this comment with your new image. 
   Make sure the image is in the 'images' directory and named appropriately (e.g., munir_tool.png).
@@ -26,6 +28,7 @@ A powerful tool to enhance your development workflow by bypassing Cursor limitat
 *   Always keep the tool updated to the latest version.
 *   Clean your browser's cache and cookies before use.
 *   Using a VPN for new account creation is recommended.
+*   ⚠️ **For YouTube users:** Make sure to copy ONLY the command (not the comment starting with `#`)
 
 ## ✨ Features
 
@@ -59,6 +62,8 @@ Choose the script for your operating system:
 # Download, make executable, and run
 curl -fsSL https://raw.githubusercontent.com/black12-ag/cursor-bypass-tool/main/scripts/install.sh -o install.sh && chmod +x install.sh && ./install.sh
 ```
+
+> 📝 **Note:** Copy the command above exactly as shown. Do NOT copy any comments (lines starting with `#`) that might appear in tutorials or videos.
 
 ### Arch Linux (AUR)
 
@@ -121,8 +126,12 @@ $ curl -fsSL https://raw.githubusercontent.com/black12-ag/cursor-bypass-tool/mai
 ℹ️ Checking latest version...
 ✅ Found latest version: 1.0.0
 ℹ️ Detected macOS Intel architecture
-✅ Found existing installation file
-ℹ️ Location: /Users/username/Downloads/CursorFreeVIP_1.0.0_mac_intel
+ℹ️ No existing installation file found, starting download...
+ℹ️ Downloading to /Users/username/Downloads...
+ℹ️ Trying generic download first: https://github.com/black12-ag/cursor-bypass-tool/releases/download/v1.0.0/CursorFreeVIP_1.0.0_mac
+✅ Generic file exists, downloading...
+✅ Download completed!
+ℹ️ Program downloaded to: /Users/username/Downloads/CursorFreeVIP_1.0.0_mac
 ⚠️ Requesting administrator privileges...
 ℹ️ Starting program with sudo...
 Password: [Enter your macOS password]
@@ -133,12 +142,14 @@ Password: [Enter your macOS password]
 If you see `Killed: 9`, this is **normal** - macOS Gatekeeper is blocking unsigned binaries. To fix:
 
 ```bash
-# Remove quarantine attribute
-sudo xattr -rd com.apple.quarantine ~/Downloads/CursorFreeVIP_1.0.0_mac_intel
+# Remove quarantine attribute (use the actual filename from your Downloads)
+sudo xattr -rd com.apple.quarantine ~/Downloads/CursorFreeVIP_1.0.0_mac*
 
-# Run the tool
-sudo ~/Downloads/CursorFreeVIP_1.0.0_mac_intel
+# Run the tool (use the actual filename from your Downloads)
+sudo ~/Downloads/CursorFreeVIP_1.0.0_mac*
 ```
+
+> 📝 **Tip:** The script now downloads the most compatible version for your system automatically.
 
 ### Expected Program Interface
 
@@ -215,6 +226,12 @@ show_account_info = True
 </details>
 
 ## ❓ Troubleshooting & Common Issues
+
+### Installation Issues
+*   **"zsh: command not found: #" Error:** This happens when you accidentally copy a comment line starting with `#`. Make sure to copy ONLY the actual command without any comments.
+*   **"Download link does not exist" Error:** This was a known issue that has been fixed. Update to the latest version by running the install script again.
+*   **Download Interrupted/Failed:** The install script now automatically tries different download sources. If issues persist, check your internet connection.
+*   **Binary Path Issues:** Fixed in the latest version - the script now properly handles file paths when falling back to generic versions.
 
 ### macOS Issues
 *   **"Killed: 9" Error:** macOS Gatekeeper blocks unsigned binaries. Fix with:
