@@ -247,23 +247,6 @@ show_account_info = True
 
 </div>
 
----
-
-## ☕ **Buy Me a Coffee**
-
-<div align="center">
-
-**Love the tool? Support its development!** 💪
-
-[💳 **PayPal Donation**](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=muay01111@gmail.com&item_name=Support+Cursor+Bypass+Tool&currency_code=USD) | [💰 **Skrill - $10**](https://skrill.me/rq/Munir%20Ayub/10/USD?key=1VqVrQ2Ly1LN5JmgKpAlzoMGBEg)
-
-<img src="./images/binance_qr.png" alt="Binance QR Code" width="120"/>
-<br/><em>Scan with Binance App → pay Munir_kabir</em>
-
-</div>
-
----
-
 <div align="center">
 
 ## 📜 **Disclaimer & License**
