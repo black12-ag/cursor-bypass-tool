@@ -826,7 +826,7 @@ class MachineIDResetter:
                     shutil.copy2(machine_id_path, backup_path)
                     print(f"{Fore.GREEN}{EMOJI['INFO']} {self.translator.get('reset.backup_created', path=backup_path) if self.translator else f'Backup created at: {backup_path}'}{Style.RESET_ALL}")
                 except Exception as e:
-                    print(f"{Fore.YELLOW}{EMOJI['INFO']} {self.translator.get('reset.backup_creation_failed', error=str(e)) if self.translator else f'Could not create backup: {str(e)}'}{Style.RESET_ALL}")
+                    print(f"{Fore.YELLOW}{EMOJI['INFO']} {self.translator.get('restore.backup_creation_failed', error=str(e)) if self.translator else f'Could not create backup: {str(e)}'}{Style.RESET_ALL}")
 
             # Write new machine ID to file
             with open(machine_id_path, "w", encoding="utf-8") as f:
