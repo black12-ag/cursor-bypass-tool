@@ -43,7 +43,7 @@ function Write-Styled {
 # Get version number function
 function Get-LatestVersion {
     try {
-        $latestRelease = Invoke-RestMethod -Uri "https://api.github.com/repos/yeongpin/cursor-free-vip/releases/latest"
+        $latestRelease = Invoke-RestMethod -Uri "https://api.github.com/repos/black12-ag/cursor-bypass-tool/releases/latest"
         return @{
             Version = $latestRelease.tag_name.TrimStart('v')
             Assets = $latestRelease.assets
