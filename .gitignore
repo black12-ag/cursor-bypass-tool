@@ -1,0 +1,53 @@
+__pycache__
+server/
+venv/
+check_license.py
+cursor_modifier.py
+reset_machine.py
+Run_Venv.bat
+token_monitor.py
+get_mac.py
+.gitignore
+build.bat
+build.mac.command
+build.py
+build.sh
+ENV/
+test.py
+new_tempemail_smail.py
+new_tempemail_api.py
+
+install.bat
+run.bat
+
+temp_account_info.txt
+
+.env copy
+
+# PyInstaller
+build/
+dist/
+*.spec2
+
+credentials.txt
+cursor_accounts.txt
+recaptcha.py
+install_requirements.bat
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+*.log
+*.db
+*.sqlite3
+
+# Mac
+run_venv.mac.command
