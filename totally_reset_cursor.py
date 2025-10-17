@@ -784,7 +784,7 @@ class MachineIDResetter:
                 else:
                     print(f"{Fore.YELLOW}{EMOJI['INFO']} {self.translator.get('reset.version_less_than_0_45')}{Style.RESET_ALL}")
             except (OSError, FileNotFoundError) as e:
-                print(f"{Fore.YELLOW}{EMOJI['WARNING']} {self.translator.get('reset.cursor_version_check_skipped', error=str(e))}{Style.RESET_ALL}")
+                print(f"{Fore.YELLOW}{EMOJI['INFO']} {self.translator.get('reset.version_less_than_0_45')}{Style.RESET_ALL}")
 
             print(f"{Fore.GREEN}{EMOJI['SUCCESS']} {self.translator.get('reset.success')}{Style.RESET_ALL}")
             print(f"\n{Fore.CYAN}{self.translator.get('reset.new_id')}:{Style.RESET_ALL}")
