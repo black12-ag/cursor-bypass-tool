@@ -775,18 +775,23 @@ class MachineIDResetter:
             self.update_system_ids(new_ids)
 
 
-            # Modify workbench.desktop.main.js
-            workbench_path = get_workbench_cursor_path(self.translator)
-            modify_workbench_js(workbench_path, self.translator)
+            # Modify workbench.desktop.main.js (only if Cursor is installed)
+            try:
+                workbench_path = get_workbench_cursor_path(self.translator)
+                modify_workbench_js(workbench_path, self.translator)
+            except OSError as e:
+                print(f"{Fore.YELLOW}{EMOJI['WARNING']} {self.translator.get('reset.cursor_not_installed', error=str(e))}{Style.RESET_ALL}")
 
-            # Check Cursor version and perform corresponding actions
-            
-            greater_than_0_45 = check_cursor_version(self.translator)
-            if greater_than_0_45:
-                print(f"{Fore.CYAN}{EMOJI['INFO']} {self.translator.get('reset.detecting_version')} >= 0.45.0，{self.translator.get('reset.patching_getmachineid')}{Style.RESET_ALL}")
-                patch_cursor_get_machine_id(self.translator)
-            else:
-                print(f"{Fore.YELLOW}{EMOJI['INFO']} {self.translator.get('reset.version_less_than_0_45')}{Style.RESET_ALL}")
+            # Check Cursor version and perform corresponding actions (only if Cursor is installed)
+            try:
+                greater_than_0_45 = check_cursor_version(self.translator)
+                if greater_than_0_45:
+                    print(f"{Fore.CYAN}{EMOJI['INFO']} {self.translator.get('reset.detecting_version')} >= 0.45.0，{self.translator.get('reset.patching_getmachineid')}{Style.RESET_ALL}")
+                    patch_cursor_get_machine_id(self.translator)
+                else:
+                    print(f"{Fore.YELLOW}{EMOJI['INFO']} {self.translator.get('reset.version_less_than_0_45')}{Style.RESET_ALL}")
+            except (OSError, FileNotFoundError) as e:
+                print(f"{Fore.YELLOW}{EMOJI['WARNING']} {self.translator.get('reset.cursor_version_check_skipped', error=str(e))}{Style.RESET_ALL}")
 
             print(f"{Fore.GREEN}{EMOJI['SUCCESS']} {self.translator.get('reset.success')}{Style.RESET_ALL}")
             print(f"\n{Fore.CYAN}{self.translator.get('reset.new_id')}:{Style.RESET_ALL}")

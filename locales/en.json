@@ -127,7 +127,9 @@
         "windows_machine_id_updated": "Windows Machine ID Updated Successfully",
         "update_windows_machine_id_failed": "Update Windows Machine ID Failed: {error}",
         "update_windows_machine_guid_failed": "Update Windows Machine GUID Failed: {error}",
-        "file_not_found": "File Not Found: {path}"
+        "file_not_found": "File Not Found: {path}",
+        "cursor_not_installed": "Cursor not installed or not found. Skipping workbench modification. Error: {error}",
+        "cursor_version_check_skipped": "Cursor version check skipped - Cursor not installed or not found. Error: {error}"
     },
     "register": {
         "title": "Cursor Registration Tool",
