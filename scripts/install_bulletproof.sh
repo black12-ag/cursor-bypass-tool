@@ -325,30 +325,14 @@ main() {
     echo -e "${GREEN}══════════════════════════════════════════════════════════${NC}"
     echo ""
     
-    # Show usage information
-    echo -e "${CYAN}📝 How to use:${NC}"
-    echo -e "${YELLOW}   cd $HOME/cursor-bypass-tool${NC}"
-    echo -e "${YELLOW}   $PYTHON_CMD main.py${NC}"
+    # Auto-run the tool immediately
+    echo -e "${CYAN}🚀 Auto-starting Cursor Bypass Tool...${NC}"
+    echo -e "${CYAN}══════════════════════════════════════════════════════════${NC}"
     echo ""
     
-    # Offer to run now
-    echo -ne "${CYAN}🚀 Would you like to run the tool now? (y/n): ${NC}"
-    read -r response
-    
-    if [[ "$response" =~ ^[Yy]$ ]]; then
-        echo ""
-        echo -e "${GREEN}🎉 Starting Cursor Bypass Tool...${NC}"
-        echo -e "${CYAN}══════════════════════════════════════════════════════════${NC}"
-        echo ""
-        
-        # Change to install directory and run
-        cd "$HOME/cursor-bypass-tool" || exit 1
-        exec $PYTHON_CMD main.py
-    else
-        echo ""
-        log "SUCCESS" "Installation complete! Run the commands above when ready."
-        echo -e "${GREEN}Thank you for using Cursor Bypass Tool! 🎉${NC}"
-    fi
+    # Change to install directory and run
+    cd "$HOME/cursor-bypass-tool" || exit 1
+    exec $PYTHON_CMD main.py
 }
 
 # Run with error handling
