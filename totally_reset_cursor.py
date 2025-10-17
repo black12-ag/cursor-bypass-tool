@@ -333,15 +333,14 @@ def check_cursor_version(translator) -> bool:
             print(f"{Fore.RED}{EMOJI['ERROR']} {translator.get('reset.version_parse_error', error=str(e))}{Style.RESET_ALL}")
             return False
             
-    except FileNotFoundError as e:
-        print(f"{Fore.RED}{EMOJI['ERROR']} {translator.get('reset.package_not_found', path=pkg_path)}{Style.RESET_ALL}")
+    except (FileNotFoundError, OSError) as e:
+        # Silently fail when Cursor is not installed - this is expected
         return False
     except json.JSONDecodeError as e:
         print(f"{Fore.RED}{EMOJI['ERROR']} {translator.get('reset.invalid_json_object')}{Style.RESET_ALL}")
         return False
     except Exception as e:
-        print(f"{Fore.RED}{EMOJI['ERROR']} {translator.get('reset.check_version_failed', error=str(e))}{Style.RESET_ALL}")
-        print(f"{Fore.YELLOW}{EMOJI['INFO']} {translator.get('reset.stack_trace')}: {traceback.format_exc()}{Style.RESET_ALL}")
+        # Only show error for unexpected exceptions
         return False
 
 def modify_workbench_js(file_path: str, translator=None) -> bool:
