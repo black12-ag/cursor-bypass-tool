@@ -23,7 +23,7 @@ print_logo() {
   ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝╚═╝  ╚═╝
 EOF
     echo -e "${NC}"
-    echo -e "${YELLOW}Cursor Bypass Tool v1.0.4${NC}"
+    echo -e "${YELLOW}Cursor Bypass Tool v1.0.5${NC}"
     echo -e "${GREEN}Bulletproof Installation Script by Munir${NC}"
     echo ""
 }

@@ -13,7 +13,7 @@
 
 ### 🚀 Professional Account Management for Cursor AI
 
-[![Version](https://img.shields.io/badge/version-1.0.4-blue.svg)](https://github.com/black12-ag/cursor-bypass-tool)
+[![Version](https://img.shields.io/badge/version-1.0.5-blue.svg)](https://github.com/black12-ag/cursor-bypass-tool)
 [![Python](https://img.shields.io/badge/python-3.8+-green.svg)](https://www.python.org/)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/black12-ag/cursor-bypass-tool)
 [![License](https://img.shields.io/badge/license-Educational-yellow.svg)](LICENSE.md)
@@ -190,7 +190,7 @@ When you run the tool, you'll see this menu:
   ██║ ╚═╝ ██║╚██████╔╝██║ ╚████║██║██║  ██║
   ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝╚═╝  ╚═╝
 
-       Pro Version Activator v1.0.4
+       Pro Version Activator v1.0.5
               Author: Munir
 
 Github: https://github.com/black12-ag/cursor-bypass-tool
@@ -428,7 +428,7 @@ See [LICENSE.md](LICENSE.md) for details.
 
 ### Made with ❤️ by Munir
 
-**Version 1.0.4 - Bulletproof Edition** | [GitHub](https://github.com/black12-ag/cursor-bypass-tool) | [Issues](https://github.com/black12-ag/cursor-bypass-tool/issues)
+**Version 1.0.5 - Bulletproof Edition** | [GitHub](https://github.com/black12-ag/cursor-bypass-tool) | [Issues](https://github.com/black12-ag/cursor-bypass-tool/issues)
 
 🎆 **NEW: Bulletproof Installation - Never Fails!** 🎆
 
