@@ -208,6 +208,8 @@ install_dependencies() {
         "$PIP_CMD install -r requirements.txt"
         "$PIP_CMD install --user -r requirements.txt"
         "$PIP_CMD install --no-cache-dir -r requirements.txt"
+        "$PIP_CMD install --break-system-packages -r requirements.txt"
+        "$PIP_CMD install --break-system-packages --user -r requirements.txt"
         "$PIP_CMD install --force-reinstall -r requirements.txt"
     )
     
